@@ -419,6 +419,7 @@ mixin _$AuthState {
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
     required TResult Function() signUp,
+    required TResult Function() loading,
     required TResult Function() success,
     required TResult Function(String errorMassage) error,
   }) =>
@@ -427,6 +428,7 @@ mixin _$AuthState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
     TResult? Function()? signUp,
+    TResult? Function()? loading,
     TResult? Function()? success,
     TResult? Function(String errorMassage)? error,
   }) =>
@@ -435,6 +437,7 @@ mixin _$AuthState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
     TResult Function()? signUp,
+    TResult Function()? loading,
     TResult Function()? success,
     TResult Function(String errorMassage)? error,
     required TResult orElse(),
@@ -444,6 +447,7 @@ mixin _$AuthState {
   TResult map<TResult extends Object?>({
     required TResult Function(_IdleState value) idle,
     required TResult Function(_SignUpState value) signUp,
+    required TResult Function(_LoadingState value) loading,
     required TResult Function(_SuccessState value) success,
     required TResult Function(_ErrorState value) error,
   }) =>
@@ -452,6 +456,7 @@ mixin _$AuthState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_IdleState value)? idle,
     TResult? Function(_SignUpState value)? signUp,
+    TResult? Function(_LoadingState value)? loading,
     TResult? Function(_SuccessState value)? success,
     TResult? Function(_ErrorState value)? error,
   }) =>
@@ -460,6 +465,7 @@ mixin _$AuthState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_IdleState value)? idle,
     TResult Function(_SignUpState value)? signUp,
+    TResult Function(_LoadingState value)? loading,
     TResult Function(_SuccessState value)? success,
     TResult Function(_ErrorState value)? error,
     required TResult orElse(),
@@ -524,6 +530,7 @@ class _$IdleStateImpl implements _IdleState {
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
     required TResult Function() signUp,
+    required TResult Function() loading,
     required TResult Function() success,
     required TResult Function(String errorMassage) error,
   }) {
@@ -535,6 +542,7 @@ class _$IdleStateImpl implements _IdleState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
     TResult? Function()? signUp,
+    TResult? Function()? loading,
     TResult? Function()? success,
     TResult? Function(String errorMassage)? error,
   }) {
@@ -546,6 +554,7 @@ class _$IdleStateImpl implements _IdleState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
     TResult Function()? signUp,
+    TResult Function()? loading,
     TResult Function()? success,
     TResult Function(String errorMassage)? error,
     required TResult orElse(),
@@ -561,6 +570,7 @@ class _$IdleStateImpl implements _IdleState {
   TResult map<TResult extends Object?>({
     required TResult Function(_IdleState value) idle,
     required TResult Function(_SignUpState value) signUp,
+    required TResult Function(_LoadingState value) loading,
     required TResult Function(_SuccessState value) success,
     required TResult Function(_ErrorState value) error,
   }) {
@@ -572,6 +582,7 @@ class _$IdleStateImpl implements _IdleState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_IdleState value)? idle,
     TResult? Function(_SignUpState value)? signUp,
+    TResult? Function(_LoadingState value)? loading,
     TResult? Function(_SuccessState value)? success,
     TResult? Function(_ErrorState value)? error,
   }) {
@@ -583,6 +594,7 @@ class _$IdleStateImpl implements _IdleState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_IdleState value)? idle,
     TResult Function(_SignUpState value)? signUp,
+    TResult Function(_LoadingState value)? loading,
     TResult Function(_SuccessState value)? success,
     TResult Function(_ErrorState value)? error,
     required TResult orElse(),
@@ -638,6 +650,7 @@ class _$SignUpStateImpl implements _SignUpState {
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
     required TResult Function() signUp,
+    required TResult Function() loading,
     required TResult Function() success,
     required TResult Function(String errorMassage) error,
   }) {
@@ -649,6 +662,7 @@ class _$SignUpStateImpl implements _SignUpState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
     TResult? Function()? signUp,
+    TResult? Function()? loading,
     TResult? Function()? success,
     TResult? Function(String errorMassage)? error,
   }) {
@@ -660,6 +674,7 @@ class _$SignUpStateImpl implements _SignUpState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
     TResult Function()? signUp,
+    TResult Function()? loading,
     TResult Function()? success,
     TResult Function(String errorMassage)? error,
     required TResult orElse(),
@@ -675,6 +690,7 @@ class _$SignUpStateImpl implements _SignUpState {
   TResult map<TResult extends Object?>({
     required TResult Function(_IdleState value) idle,
     required TResult Function(_SignUpState value) signUp,
+    required TResult Function(_LoadingState value) loading,
     required TResult Function(_SuccessState value) success,
     required TResult Function(_ErrorState value) error,
   }) {
@@ -686,6 +702,7 @@ class _$SignUpStateImpl implements _SignUpState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_IdleState value)? idle,
     TResult? Function(_SignUpState value)? signUp,
+    TResult? Function(_LoadingState value)? loading,
     TResult? Function(_SuccessState value)? success,
     TResult? Function(_ErrorState value)? error,
   }) {
@@ -697,6 +714,7 @@ class _$SignUpStateImpl implements _SignUpState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_IdleState value)? idle,
     TResult Function(_SignUpState value)? signUp,
+    TResult Function(_LoadingState value)? loading,
     TResult Function(_SuccessState value)? success,
     TResult Function(_ErrorState value)? error,
     required TResult orElse(),
@@ -710,6 +728,126 @@ class _$SignUpStateImpl implements _SignUpState {
 
 abstract class _SignUpState implements AuthState {
   const factory _SignUpState() = _$SignUpStateImpl;
+}
+
+/// @nodoc
+abstract class _$$LoadingStateImplCopyWith<$Res> {
+  factory _$$LoadingStateImplCopyWith(
+          _$LoadingStateImpl value, $Res Function(_$LoadingStateImpl) then) =
+      __$$LoadingStateImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadingStateImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$LoadingStateImpl>
+    implements _$$LoadingStateImplCopyWith<$Res> {
+  __$$LoadingStateImplCopyWithImpl(
+      _$LoadingStateImpl _value, $Res Function(_$LoadingStateImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadingStateImpl implements _LoadingState {
+  const _$LoadingStateImpl();
+
+  @override
+  String toString() {
+    return 'AuthState.loading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadingStateImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() signUp,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(String errorMassage) error,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? idle,
+    TResult? Function()? signUp,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(String errorMassage)? error,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? signUp,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String errorMassage)? error,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_IdleState value) idle,
+    required TResult Function(_SignUpState value) signUp,
+    required TResult Function(_LoadingState value) loading,
+    required TResult Function(_SuccessState value) success,
+    required TResult Function(_ErrorState value) error,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_IdleState value)? idle,
+    TResult? Function(_SignUpState value)? signUp,
+    TResult? Function(_LoadingState value)? loading,
+    TResult? Function(_SuccessState value)? success,
+    TResult? Function(_ErrorState value)? error,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_IdleState value)? idle,
+    TResult Function(_SignUpState value)? signUp,
+    TResult Function(_LoadingState value)? loading,
+    TResult Function(_SuccessState value)? success,
+    TResult Function(_ErrorState value)? error,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadingState implements AuthState {
+  const factory _LoadingState() = _$LoadingStateImpl;
 }
 
 /// @nodoc
@@ -752,6 +890,7 @@ class _$SuccessStateImpl implements _SuccessState {
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
     required TResult Function() signUp,
+    required TResult Function() loading,
     required TResult Function() success,
     required TResult Function(String errorMassage) error,
   }) {
@@ -763,6 +902,7 @@ class _$SuccessStateImpl implements _SuccessState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
     TResult? Function()? signUp,
+    TResult? Function()? loading,
     TResult? Function()? success,
     TResult? Function(String errorMassage)? error,
   }) {
@@ -774,6 +914,7 @@ class _$SuccessStateImpl implements _SuccessState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
     TResult Function()? signUp,
+    TResult Function()? loading,
     TResult Function()? success,
     TResult Function(String errorMassage)? error,
     required TResult orElse(),
@@ -789,6 +930,7 @@ class _$SuccessStateImpl implements _SuccessState {
   TResult map<TResult extends Object?>({
     required TResult Function(_IdleState value) idle,
     required TResult Function(_SignUpState value) signUp,
+    required TResult Function(_LoadingState value) loading,
     required TResult Function(_SuccessState value) success,
     required TResult Function(_ErrorState value) error,
   }) {
@@ -800,6 +942,7 @@ class _$SuccessStateImpl implements _SuccessState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_IdleState value)? idle,
     TResult? Function(_SignUpState value)? signUp,
+    TResult? Function(_LoadingState value)? loading,
     TResult? Function(_SuccessState value)? success,
     TResult? Function(_ErrorState value)? error,
   }) {
@@ -811,6 +954,7 @@ class _$SuccessStateImpl implements _SuccessState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_IdleState value)? idle,
     TResult Function(_SignUpState value)? signUp,
+    TResult Function(_LoadingState value)? loading,
     TResult Function(_SuccessState value)? success,
     TResult Function(_ErrorState value)? error,
     required TResult orElse(),
@@ -893,6 +1037,7 @@ class _$ErrorStateImpl implements _ErrorState {
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
     required TResult Function() signUp,
+    required TResult Function() loading,
     required TResult Function() success,
     required TResult Function(String errorMassage) error,
   }) {
@@ -904,6 +1049,7 @@ class _$ErrorStateImpl implements _ErrorState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
     TResult? Function()? signUp,
+    TResult? Function()? loading,
     TResult? Function()? success,
     TResult? Function(String errorMassage)? error,
   }) {
@@ -915,6 +1061,7 @@ class _$ErrorStateImpl implements _ErrorState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
     TResult Function()? signUp,
+    TResult Function()? loading,
     TResult Function()? success,
     TResult Function(String errorMassage)? error,
     required TResult orElse(),
@@ -930,6 +1077,7 @@ class _$ErrorStateImpl implements _ErrorState {
   TResult map<TResult extends Object?>({
     required TResult Function(_IdleState value) idle,
     required TResult Function(_SignUpState value) signUp,
+    required TResult Function(_LoadingState value) loading,
     required TResult Function(_SuccessState value) success,
     required TResult Function(_ErrorState value) error,
   }) {
@@ -941,6 +1089,7 @@ class _$ErrorStateImpl implements _ErrorState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_IdleState value)? idle,
     TResult? Function(_SignUpState value)? signUp,
+    TResult? Function(_LoadingState value)? loading,
     TResult? Function(_SuccessState value)? success,
     TResult? Function(_ErrorState value)? error,
   }) {
@@ -952,6 +1101,7 @@ class _$ErrorStateImpl implements _ErrorState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_IdleState value)? idle,
     TResult Function(_SignUpState value)? signUp,
+    TResult Function(_LoadingState value)? loading,
     TResult Function(_SuccessState value)? success,
     TResult Function(_ErrorState value)? error,
     required TResult orElse(),

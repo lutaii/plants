@@ -1,10 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:user_repository/user_repository.dart';
 
 part 'auth_bloc.freezed.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc() : super(const AuthState.idle()) {
+  final UserRepository userRepository;
+
+  AuthBloc({required this.userRepository}) : super(const AuthState.idle()) {
     on<AuthEvent>((event, emit) {
       event.map(
         signIn: (_) => () {},
@@ -31,6 +34,8 @@ class AuthState with _$AuthState {
   const factory AuthState.idle() = _IdleState;
 
   const factory AuthState.signUp() = _SignUpState;
+
+  const factory AuthState.loading() = _LoadingState;
 
   const factory AuthState.success() = _SuccessState;
 

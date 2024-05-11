@@ -12,7 +12,12 @@
           "package_name": "com.example.plants"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "17800555424-4p4h36ch6qms8qq2bf0rbeuvokh8u60u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDOOpqEKyihssoLqpCDYt1Lvjb0D_uRiaE"
@@ -20,7 +25,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "17800555424-4p4h36ch6qms8qq2bf0rbeuvokh8u60u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "17800555424-m0d6lb43pp2c9p6avirdr3q2mdd2ueum.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.plants"
+              }
+            }
+          ]
         }
       }
     }
