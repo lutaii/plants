@@ -29,6 +29,7 @@ dependencies:
   user_repository:
     path: packages/user_repository
   freezed_annotation: ^2.4.1
+  provider: ^6.1.2
 
 dev_dependencies:
   flutter_test:

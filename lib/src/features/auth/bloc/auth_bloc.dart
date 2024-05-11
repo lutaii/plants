@@ -1,43 +1,91 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:bloc/bloc.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:user_repository/user_repository.dart';
-
-part 'auth_bloc.freezed.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final UserRepository userRepository;
 
-  AuthBloc({required this.userRepository}) : super(const AuthState.idle()) {
-    on<AuthEvent>((event, emit) {
-      event.map(
-        signIn: (_) => () {},
-        signUp: (_) => () {},
-      );
-    });
+  AuthBloc({required this.userRepository}) : super(AuthStateIdle()) {
+    on<AuthEvent>(
+      (event, emit) async {
+        if (event is AuthEventSignIn) {
+          try {
+            emit(AuthStateLoading());
+            await userRepository.signIn(event.email, event.password);
+            emit(AuthStateSuccess());
+          } on FirebaseException catch (e) {
+            emit(AuthStateFailure(errorMessage: e.message ?? ''));
+            print(e);
+          }
+        }
+      },
+    );
   }
 }
 
-@freezed
-class AuthEvent with _$AuthEvent {
-  const factory AuthEvent.signIn(
-      {required String email, required String password}) = _SignInEvent;
-
-  const factory AuthEvent.signUp({
-    required String email,
-    required String name,
-    required String password,
-  }) = _SignUpEvent;
+abstract class AuthEvent extends Equatable {
+  @override
+  List<Object?> get props => [];
 }
 
-@freezed
-class AuthState with _$AuthState {
-  const factory AuthState.idle() = _IdleState;
+class AuthEventSignIn implements AuthEvent {
+  final String email;
+  final String password;
 
-  const factory AuthState.signUp() = _SignUpState;
+  AuthEventSignIn({
+    required this.email,
+    required this.password,
+  });
 
-  const factory AuthState.loading() = _LoadingState;
+  @override
+  List<Object?> get props => [email, password];
 
-  const factory AuthState.success() = _SuccessState;
+  @override
+  bool? get stringify => true;
+}
 
-  const factory AuthState.error({required String errorMassage}) = _ErrorState;
+class AuthEventSignUp implements AuthEvent {
+  final String email;
+  final String password;
+  final String name;
+
+  AuthEventSignUp({
+    required this.email,
+    required this.password,
+    required this.name,
+  });
+
+  @override
+  List<Object?> get props => [email, password, name];
+
+  @override
+  bool? get stringify => true;
+}
+
+abstract class AuthState extends Equatable {}
+
+class AuthStateIdle extends AuthState {
+  @override
+  List<Object?> get props => [];
+}
+
+class AuthStateLoading extends AuthState {
+  @override
+  List<Object?> get props => [];
+}
+
+class AuthStateSuccess extends AuthState {
+  @override
+  List<Object?> get props => [];
+}
+
+class AuthStateFailure extends AuthState {
+  final String errorMessage;
+
+  AuthStateFailure({required this.errorMessage});
+
+  @override
+  List<Object?> get props => [errorMessage];
 }
