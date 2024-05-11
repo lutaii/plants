@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:logger/web.dart';
-import 'package:plants/src/models/user_model.dart';
-import 'package:plants/src/user_repo.dart';
+import 'package:user_repository/src/models/user_model.dart';
+import 'package:user_repository/src/user_repo.dart';
 
 class FireBaseUserRepository extends UserRepository {
   final FirebaseAuth _firebaseAuth;

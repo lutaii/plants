@@ -24,6 +24,11 @@ dependencies:
   firebase_messaging: ^14.7.19
   drift: ^2.15.0
   logger: ^2.2.0
+  freezed: ^2.5.2
+
+  user_repository:
+    path: packages/user_repository
+  freezed_annotation: ^2.4.1
 
 dev_dependencies:
   flutter_test:

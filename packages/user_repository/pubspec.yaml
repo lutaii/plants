@@ -1,5 +1,5 @@
-name: plants
-description: "A new Flutter project."
+name: user_repository
+description: "User Repository Package"
 publish_to: 'none' 
 version: 1.0.0+1
 
